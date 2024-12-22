@@ -13,10 +13,11 @@
                 Брэнд: {{ vehicle.brand }}<br>
                 Модель: {{ vehicle.model }}<br>
                 Год выпуска: {{ vehicle.release_year }}<br>
-                Номер серийного номера:
+                Серийный номер:
                 <a href="{% url 'vehicle_detail' vehicle.vehicle_id %}">
                     {{ vehicle.serial_number }}
                 </a><br>
+                <a href="{% url 'edit_vehicle' vehicle.pk %}">Редактировать</a>
             </li>
         {% empty %}
             <li>Нет данных.</li>

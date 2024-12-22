@@ -13,4 +13,8 @@ urlpatterns = [
     path('driver/<int:pk>/', views.driver_detail, name='driver_detail'),
     path('vehicle/<int:pk>/', views.vehicle_detail, name='vehicle_detail'),
     path('route/<int:pk>/', views.route_detail, name='route_detail'),
+
+    path('edit_driver/<int:pk>/', views.edit_driver, name='edit_driver'),
+    path('edit_vehicle/<int:pk>/', views.edit_vehicle, name='edit_vehicle'),
+    path('edit_route/<int:pk>/', views.edit_route, name='edit_route'),
 ]

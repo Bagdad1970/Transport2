@@ -11,9 +11,10 @@
         {% for driver in drivers %}
             <li>
                 <a href="{% url 'driver_detail' driver.driver_id %}">
-                    {{ driver.surname }} {{ driver.firstname }} {{ driver.lastname }}
-                </a> - Телефон: {{ driver.phone_number }}<br>
-                Лицензия: {{ driver.license_num }} (Срок действия: {{ driver.license_exp }})
+                    {{ driver.surname }} {{ driver.firstname }} {{ driver.lastname }}</a><br>
+                Телефон: {{ driver.phone_number }}<br>
+                Лицензия: {{ driver.license_num }} (Срок действия: {{ driver.license_exp }})<br>
+                <a href="{% url 'edit_driver' driver.pk %}">Редактировать</a>
             </li>
         {% empty %}
             <li>Нет данных.</li>

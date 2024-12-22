@@ -93,3 +93,41 @@ def vehicle_detail(request, pk):
 def route_detail(request, pk):
     route = get_object_or_404(Route, pk=pk)
     return render(request, 'route_detail.html', {'route': route})
+
+def edit_driver(request, pk):
+    driver = get_object_or_404(Driver, pk=pk)  # Получаем водителя по pk
+    if request.method == 'POST':
+        form = DriverForm(request.POST, instance=driver)
+        if form.is_valid():
+            form.save()  # Сохраняем изменения
+            return redirect('drivers_list')  # Перенаправляем на список водителей
+    else:
+        form = DriverForm(instance=driver)  # Заполняем форму данными водителя
+
+    return render(request, 'edit_driver.html', {'form': form, 'driver': driver})
+
+# Представление для редактирования автомобиля
+def edit_vehicle(request, pk):
+    vehicle = get_object_or_404(Vehicle, pk=pk)  # Получаем автомобиль по pk
+    if request.method == 'POST':
+        form = VehicleForm(request.POST, instance=vehicle)
+        if form.is_valid():
+            form.save()  # Сохраняем изменения
+            return redirect('vehicles_list')  # Перенаправляем на список автомобилей
+    else:
+        form = VehicleForm(instance=vehicle)  # Заполняем форму данными автомобиля
+
+    return render(request, 'edit_vehicle.html', {'form': form, 'vehicle': vehicle})
+
+# Представление для редактирования маршрута
+def edit_route(request, pk):
+    route = get_object_or_404(Route, pk=pk)  # Получаем маршрут по pk
+    if request.method == 'POST':
+        form = RouteForm(request.POST, instance=route)
+        if form.is_valid():
+            form.save()  # Сохраняем изменения
+            return redirect('routes_list')  # Перенаправляем на список маршрутов
+    else:
+        form = RouteForm(instance=route)  # Заполняем форму данными маршрута
+
+    return render(request, 'edit_route.html', {'form': form, 'route': route})

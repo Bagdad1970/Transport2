@@ -11,10 +11,10 @@
         {% for route in routes %}
             <li>
                 <a href="{% url 'route_detail' route.route_id %}">
-                    Направление пути: {{ route.start_location }} - Конец: {{ route.end_location }}
-                </a><br>
+                    Направление пути: {{ route.start_location }} - Конец: {{ route.end_location }}</a><br>
                 Водитель: {{ route.driver.surname }} {{ route.driver.firstname }}<br>
-                Время окончания: {{ route.end_datetime }}
+                Время окончания: {{ route.end_datetime }}<br>
+                <a href="{% url 'edit_route' route.pk %}">Редактировать</a>
             </li>
         {% empty %}
             <li>Нет данных о маршрутах.</li>
