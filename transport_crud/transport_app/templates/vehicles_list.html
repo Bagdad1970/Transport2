@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список автомобилей</title>
+</head>
+<body>
+    <h1>Список автомобилей</h1>
+    <ul>
+        {% for vehicle in vehicles %}
+            <li>
+                Брэнд: {{ vehicle.brand }}<br>
+                Модель: {{ vehicle.model }}<br>
+                Год выпуска: {{ vehicle.release_year }}<br>
+                Номер серийного номера:
+                <a href="{% url 'vehicle_detail' vehicle.vehicle_id %}">
+                    {{ vehicle.serial_number }}
+                </a><br>
+            </li>
+        {% empty %}
+            <li>Нет данных.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'home' %}">Назад на главную страницу</a>
+</body>
+</html>

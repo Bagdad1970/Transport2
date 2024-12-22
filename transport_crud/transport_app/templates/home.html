@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Главная страница</title>
+</head>
+<body>
+    <h1>Выберите модель для работы</h1>
+    <ul>
+        <li><a href="{% url 'model_action' model_name='drivers' %}">Водители</a></li>
+        <li><a href="{% url 'model_action' model_name='vehicles' %}">Автомобили</a></li>
+        <li><a href="{% url 'model_action' model_name='routes' %}">Маршруты</a></li>
+    </ul>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список маршрутов</title>
+</head>
+<body>
+    <h1>Список маршрутов</h1>
+    <ul>
+        {% for route in routes %}
+            <li>
+                <a href="{% url 'route_detail' route.route_id %}">
+                    Направление пути: {{ route.start_location }} - Конец: {{ route.end_location }}
+                </a><br>
+                Водитель: {{ route.driver.surname }} {{ route.driver.firstname }}<br>
+                Время окончания: {{ route.end_datetime }}
+            </li>
+        {% empty %}
+            <li>Нет данных о маршрутах.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'home' %}">Назад на главную страницу</a>
+</body>
+</html>

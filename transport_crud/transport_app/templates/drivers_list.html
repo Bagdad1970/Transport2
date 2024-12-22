@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список водителей</title>
+</head>
+<body>
+    <h1>Список водителей</h1>
+    <ul>
+        {% for driver in drivers %}
+            <li>
+                <a href="{% url 'driver_detail' driver.driver_id %}">
+                    {{ driver.surname }} {{ driver.firstname }} {{ driver.lastname }}
+                </a> - Телефон: {{ driver.phone_number }}<br>
+                Лицензия: {{ driver.license_num }} (Срок действия: {{ driver.license_exp }})
+            </li>
+        {% empty %}
+            <li>Нет данных.</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'home' %}">Назад на главную страницу</a>
+</body>
+</html>

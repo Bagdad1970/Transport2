@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор действия</title>
+</head>
+<body>
+    <h1>Выберите действие для модели {{ model_name|capfirst }}</h1>
+    <ul>
+        <li><a href="{% url list_url %}">Просмотр списка {{ model_name|capfirst }}</a></li>
+        <li><a href="{% url add_url %}">Добавить {{ model_name|capfirst }}</a></li>
+    </ul>
+    <a href="{% url 'home' %}">Назад на главную страницу</a>
+</body>
+</html>

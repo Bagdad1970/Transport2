@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Driver Detail</title>
+</head>
+<body>
+    <h1>Driver Detail</h1>
+    <p><strong>ID:</strong> {{ driver.driver_id }}</p>
+    <p><strong>Name:</strong> {{ driver.surname }} {{ driver.firstname }} {{ driver.lastname }}</p>
+    <p><strong>Birthdate:</strong> {{ driver.birthdate }}</p>
+    <p><strong>Phone Number:</strong> {{ driver.phone_number }}</p>
+    <p><strong>License Number:</strong> {{ driver.license_num }}</p>
+    <p><strong>License Expiry:</strong> {{ driver.license_exp }}</p>
+    <a href="{% url 'drivers_list' %}">Назад к водителям</a>
+</body>
+</html>
